@@ -1,49 +1,81 @@
-import { createI18n } from 'sveltekit-i18n';
+import i18n from 'sveltekit-i18n';
+
+/** @type {import('sveltekit-i18n').Config} */
+const config = {
+  loaders: [
+    {
+      locale: 'de',
+      key: 'common',
+      loader: async () => (await import('./locales/de.json')).default,
+    },
+    {
+      locale: 'it',
+      key: 'common',
+      loader: async () => (await import('./locales/it.json')).default,
+    },
+    {
+      locale: 'en',
+      key: 'common',
+      loader: async () => (await import('./locales/en.json')).default,
+    },
+    {
+      locale: 'ld',
+      key: 'common',
+      loader: async () => (await import('./locales/ld.json')).default,
+    },
+  ],
+};
+
+/** i18n instance */
+export const {
+  t,
+  locale,
+  locales,
+  loading,
+  loadTranslations,
+} = new i18n(config);
 
 /** Supported languages */
-const LOCALES = {
+export type Locale = 'de' | 'it' | 'en' | 'ld';
+
+export const LOCALES: Record<Locale, { name: string; fallback: boolean }> = {
   de: { name: 'Deutsch', fallback: true },
   it: { name: 'Italiano', fallback: false },
   en: { name: 'English', fallback: false },
-  ld: { name: 'Ladin', fallback: false }
+  ld: { name: 'Ladin', fallback: false },
 };
-
-type Locale = keyof typeof LOCALES;
-
-/** Load locale files */
-const loadLocale = (locale: Locale) => import(`./locales/${locale}.json`);
-
-/** i18n configuration */
-const config = {
-  loaders: [
-    { locale: 'de', key: 'common', loader: () => loadLocale('de') },
-    { locale: 'it', key: 'common', loader: () => loadLocale('it') },
-    { locale: 'en', key: 'common', loader: () => loadLocale('en') },
-    { locale: 'ld', key: 'common', loader: () => loadLocale('ld') }
-  ],
-  fallbackLocale: 'de',
-  loader: async ({ key, locale }) => {
-    const loaded = await loadLocale(locale as Locale);
-    return loaded[key] || null;
-  }
-};
-
-export const { t, locale, locales, loading, detetectLocale } = createI18n(config);
 
 /** Detect user's preferred locale */
 export function detectLocale(): Locale {
   // Check stored preference
-  const stored = localStorage.getItem('suedtirol-wetter-locale');
-  if (stored && stored in LOCALES) {
-    return stored as Locale;
+  if (typeof window !== 'undefined') {
+    const stored = localStorage.getItem('suedtirol-wetter-locale');
+    if (stored && stored in LOCALES) {
+      return stored as Locale;
+    }
   }
-  
+
   // Check browser language
-  const browserLang = navigator.language.split('-')[0];
-  if (browserLang in LOCALES) {
-    return browserLang as Locale;
+  if (typeof navigator !== 'undefined') {
+    const browserLang = navigator.language.split('-')[0] as Locale;
+    if (browserLang in LOCALES) {
+      return browserLang;
+    }
   }
-  
+
   // Default to German
   return 'de';
+}
+
+/** Set user's preferred locale */
+export function setLocale(locale: Locale) {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('suedtirol-wetter-locale', locale);
+    location.reload();
+  }
+}
+
+/** Get all supported locales */
+export function getLocales(): Locale[] {
+  return Object.keys(LOCALES) as Locale[];
 }
