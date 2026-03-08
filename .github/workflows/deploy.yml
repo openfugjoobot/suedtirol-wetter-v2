@@ -39,7 +39,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: suedtirol-wetter-v2
-          directory: .svelte-kit/cloudflare
+          directory: build
           # Optional: set git branch and commit info for preview deployments
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
