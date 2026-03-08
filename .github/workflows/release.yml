@@ -1,0 +1,64 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Generate Release Notes
+        id: release_notes
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Generating release notes for version $VERSION..."
+
+          # Extract changelog for this version
+          if [ -f CHANGELOG.md ]; then
+            awk "/## \[$VERSION\]/,/^## \[/{print}" CHANGELOG.md | head -n -1 > release_notes.md
+          else
+            echo "No changelog found" > release_notes.md
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: release_notes.md
+          files: |
+            build/**
+            package.json
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notify Deployment
+        run: |
+          echo "✅ Release ${{ steps.release_notes.outputs.version }} deployed successfully!"
+          echo "🚀 Cloudflare Pages preview URL will be available in the deployment job"

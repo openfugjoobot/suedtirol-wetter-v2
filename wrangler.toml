@@ -1,0 +1,18 @@
+# Cloudflare Pages Configuration
+# This is optional but can be useful for advanced Cloudflare features
+
+# Project configuration
+name = "suedtirol-wetter-v2"
+compatibility_date = "2024-03-20"
+
+# Environment variables that should be available in production
+[vars]
+NODE_ENV = "production"
+
+# Production environment
+[env.production]
+name = "suedtirol-wetter-v2"
+
+# Preview environment
+[env.preview]
+name = "suedtirol-wetter-v2-preview"

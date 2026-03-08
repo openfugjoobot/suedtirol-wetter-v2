@@ -1,343 +1,124 @@
 # Contributing to Südtirol Wetter App V2
 
-Thank you for your interest in contributing! This guide will help you get started with development.
+Thank you for your interest in contributing to this project!
 
-## Table of Contents
+## How to Contribute
 
-1. [Development Setup](#development-setup)
-2. [Code Style](#code-style)
-3. [Project Structure](#project-structure)
-4. [Making Changes](#making-changes)
-5. [Testing](#testing)
-6. [Submitting Changes](#submitting-changes)
-7. [Common Tasks](#common-tasks)
+### Reporting Bugs
 
----
+Before creating bug reports, please check the existing issues to avoid duplicates.
 
-## Development Setup
+When creating a bug report, include:
+- A descriptive title
+- Steps to reproduce the issue
+- Expected behavior
+- Actual behavior
+- Screenshots (if applicable)
+- Browser and device information
+- Any relevant error messages from the console
 
-### Prerequisites
+### Suggesting Enhancements
 
-- **Node.js** 18+ (LTS recommended)
-- **npm** or **pnpm** for package management
-- **Git** for version control
-- A modern code editor (VS Code recommended)
+Enhancement suggestions are welcome! When suggesting an enhancement:
+- Use a clear and descriptive title
+- Provide a detailed explanation of the feature
+- Explain why this enhancement would be useful
+- Provide examples of how the feature would work
 
-### Initial Setup
+### Development Setup
 
-```bash
-# Clone the repository
-git clone https://github.com/openfugjoobot/suedtirol-wetter-v2.git
-cd suedtirol-wetter-v2
+1. Fork the repository
+2. Clone your fork locally:
+   ```bash
+   git clone https://github.com/your-username/suedtirol-wetter-v2.git
+   cd suedtirol-wetter-v2
+   ```
 
-# Install dependencies
-npm install
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-# Start development server
-npm run dev
-```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-The app will be available at `http://localhost:5173`
+5. Make your changes and test them
 
-### Recommended VS Code Extensions
+### Code Style
 
-- Svelte for VS Code
-- Tailwind CSS IntelliSense
-- ESLint
-- Prettier
-- TypeScript Vue Plugin (Volar)
+This project uses:
+- **ESLint** for code linting
+- **Prettier** for code formatting
+- **TypeScript** for type safety
 
----
+Please run `npm run lint` before submitting your PR.
 
-## Code Style
+### Testing
 
-### General Guidelines
+- Unit tests: `npm run test`
+- E2E tests: `npm run test:e2e`
+- Type checking: `npm run check`
 
-- Use **TypeScript** for all new code
-- Follow existing patterns in the codebase
-- Write meaningful variable and function names
-- Keep functions small and focused
-- Comment complex logic
+Ensure all tests pass before submitting your PR.
 
-### Svelte 5 Best Practices
+### Commit Messages
 
-Use Svelte 5 runes for reactivity:
+Follow conventional commits:
+- `feat:` - New feature
+- `fix:` - Bug fix
+- `docs:` - Documentation changes
+- `style:` - Code style changes (formatting)
+- `refactor:` - Code refactoring
+- `test:` - Test additions or changes
+- `chore:` - Maintenance tasks
 
-```typescript
-// ✅ Use runes
-let count = $state(0);
-let doubled = $derived(count * 2);
+Example: `feat: add hourly weather forecast chart`
 
-$effect(() => {
-  console.log('Count changed:', count);
-});
+### Pull Request Process
 
-// ❌ Avoid old reactive syntax
-let count = 0;
-$: doubled = count * 2;
-```
+1. Update documentation if needed
+2. Add tests for new features or bug fixes
+3. Ensure all tests pass
+4. Update the CHANGELOG.md
+5. Submit a clear PR description
 
-### TypeScript Guidelines
-
-```typescript
-// ✅ Use interfaces for objects
-interface WeatherData {
-  temperature: number;
-  condition: string;
-}
-
-// ✅ Use proper types for unions
-type Theme = 'light' | 'dark' | 'oled';
-
-// ✅ Avoid 'any' type
-// ❌ bad: const data: any = response;
-// ✅ good: const data: WeatherData = response;
-```
-
-### CSS & Tailwind
-
-- Use Tailwind CSS utility classes
-- Keep custom CSS to a minimum
-- Use CSS variables for theme colors
-
-```svelte
-<!-- ✅ Good -->
-<div class="flex items-center gap-4 p-4">
-
-<!-- ❌ Avoid -->
-<div style="display: flex; padding: 16px;">
-```
-
----
-
-## Project Structure
+### Project Structure
 
 ```
 src/
 ├── lib/
-│   ├── api/           # API clients (Open-Meteo)
-│   ├── components/    # Svelte components
-│   │   ├── ui/        # Base UI primitives
-│   │   ├── weather/  # Weather-specific components
-│   │   └── location/ # Location components
-│   ├── hooks/         # Custom Svelte hooks
-│   ├── i18n/          # Translations
-│   ├── services/      # Business logic
-│   ├── stores/        # State management
-│   ├── types/         # TypeScript definitions
-│   └── utils/         # Helper functions
-├── routes/            # SvelteKit pages
-└── static/            # Static assets
+│   ├── api/              # API clients
+│   ├── components/       # Reusable components
+│   ├── services/         # Business logic
+│   ├── stores/           # State management
+│   └── types/            # TypeScript definitions
+└── routes/               # SvelteKit pages
 ```
 
-### Naming Conventions
+### Adding a New Language
 
-| Type | Convention | Example |
-|------|------------|---------|
-| Components | PascalCase | `WeatherCard.svelte` |
-| Services | camelCase + .service | `weather.service.ts` |
-| Types | PascalCase | `WeatherData` |
-| Hooks | camelCase + .hook | `useGeolocation.ts` |
-| Stores | .store.ts suffix | `weather.store.ts` |
+1. Create a new locale file in `src/lib/i18n/locales/`
+2. Add translations for all keys
+3. Update `src/lib/i18n/index.ts` to include the new language
+4. Add a language flag icon if needed
 
----
+### Adding a New Weather Data Field
 
-## Making Changes
-
-### 1. Create a Branch
-
-```bash
-# Create and switch to a new branch
-git checkout -b feature/my-new-feature
-
-# Or for bug fixes
-git checkout -b fix/issue-description
-```
-
-### 2. Make Your Changes
-
-- Follow the code style guidelines
-- Add tests if applicable
-- Update documentation if needed
-
-### 3. Commit Your Changes
-
-```bash
-# Stage your changes
-git add .
-
-# Commit with a descriptive message
-git commit -m "Add feature: new weather display component"
-```
-
-**Commit Message Format**:
-```
-type(scope): description
-
-[optional body]
-```
-
-Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
-
-### 4. Push and Create PR
-
-```bash
-# Push to your fork
-git push origin feature/my-new-feature
-
-# Create Pull Request on GitHub
-```
-
----
-
-## Testing
-
-### Running Tests
-
-```bash
-# Unit tests
-npm run test
-
-# Unit tests with watch mode
-npm run test:watch
-
-# E2E tests
-npm run test:e2e
-
-# Type checking
-npm run check
-```
-
-### Writing Tests
-
-#### Unit Test Example
-
-```typescript
-// src/lib/utils.test.ts
-import { describe, it, expect } from 'vitest';
-import { formatTemperature } from './utils';
-
-describe('formatTemperature', () => {
-  it('formats celsius correctly', () => {
-    expect(formatTemperature(25, 'celsius')).toBe('25°C');
-  });
-  
-  it('formats fahrenheit correctly', () => {
-    expect(formatTemperature(77, 'fahrenheit')).toBe('77°F');
-  });
-});
-```
-
-#### Component Test Example
-
-```typescript
-// src/lib/components/weather/WeatherCard.test.ts
-import { render, screen } from '@testing-library/svelte';
-import WeatherCard from './WeatherCard.svelte';
-
-it('displays temperature', () => {
-  render(WeatherCard, { temperature: 20 });
-  expect(screen.getByText('20°C')).toBeInTheDocument();
-});
-```
-
----
-
-## Submitting Changes
-
-### Pull Request Guidelines
-
-1. **Keep PRs small and focused** - One feature or fix per PR
-2. **Describe your changes** - Explain what and why
-3. **Link issues** - Reference related GitHub issues
-4. **Update docs** - Keep documentation in sync
-
-### PR Template
-
-```markdown
-## Description
-Brief description of changes
-
-## Type of Change
-- [ ] Bug fix
-- [ ] New feature
-- [ ] Documentation update
-- [ ] Refactoring
-
-## Testing
-Describe testing done
-
-## Checklist
-- [ ] Code follows style guidelines
-- [ ] Tests pass
-- [ ] Documentation updated
-```
-
----
-
-## Common Tasks
-
-### Adding a New Translation
-
-1. Open `src/lib/i18n/locales/`
-2. Edit the relevant locale file (de.json, it.json, en.json, ld.json)
-3. Add missing keys
-4. Test in the app
-
-```json
-// Example: Adding a new translation key
-{
-  "weather": {
-    "humidity": "Humidity / Luftfeuchtigkeit"
-  }
-}
-```
-
-### Adding a New Component
-
-1. Create component in appropriate folder
-2. Export from index.ts
-3. Use in routes
-
-```svelte
-<!-- src/lib/components/weather/NewComponent.svelte -->
-<script lang="ts">
-  interface Props {
-    title: string;
-  }
-  
-  let { title }: Props = $props();
-</script>
-
-<div class="new-component">
-  <h2>{title}</h2>
-</div>
-```
-
-### Adding a New API Endpoint
-
-1. Add types in `src/lib/types/`
-2. Update API client in `src/lib/api/`
-3. Add service method in `src/lib/services/`
-4. Create store if needed
-
----
-
-## Questions?
-
-- Open an issue on GitHub
-- Check existing issues and discussions
-- Review the technical documentation
-
----
+1. Update the TypeScript types in `src/lib/types/weather.types.ts`
+2. Add the API call in `src/lib/api/open-meteo.client.ts`
+3. Create or update the service layer in `src/lib/services/weather.service.ts`
+4. Add or update the component to display the data
 
 ## Code of Conduct
 
-- Be respectful and inclusive
-- Welcome newcomers
-- Help others learn and grow
-- Focus on what's best for the project
+Be respectful and constructive. We're all here to build something great together.
+
+## Questions?
+
+Feel free to open an issue with the "question" label.
 
 ---
 
-*Thank you for contributing! 🎉*
+Thank you for contributing! 🙏

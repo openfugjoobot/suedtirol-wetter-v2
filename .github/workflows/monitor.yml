@@ -1,0 +1,68 @@
+name: Monitor
+
+on:
+  schedule:
+    - cron: '0 6,12,18 * * *'  # Run 3 times daily at 6am, 12pm, 6pm UTC
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    name: Health Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Production URL
+        run: |
+          PROD_URL="https://suedtirol-wetter-v2.pages.dev"
+
+          echo "Checking $PROD_URL..."
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" $PROD_URL)
+
+          if [ $HTTP_CODE -eq 200 ]; then
+            echo "✅ Production is healthy (HTTP $HTTP_CODE)"
+          else
+            echo "❌ Production is unhealthy (HTTP $HTTP_CODE)"
+            exit 1
+          fi
+
+      - name: Check API Endpoints
+        run: |
+          echo "Checking Open-Meteo API availability..."
+          API_URL="https://api.open-meteo.com/v1/forecast?latitude=46.5&longitude=11.4&current_weather=true"
+
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" $API_URL)
+
+          if [ $HTTP_CODE -eq 200 ]; then
+            echo "✅ Open-Meteo API is healthy (HTTP $HTTP_CODE)"
+          else
+            echo "❌ Open-Meteo API is unhealthy (HTTP $HTTP_CODE)"
+            exit 1
+          fi
+
+      - name: Verify PWA Manifest
+        run: |
+          PROD_URL="https://suedtirol-wetter-v2.pages.dev"
+          MANIFEST_URL="$PROD_URL/manifest.json"
+
+          echo "Checking PWA manifest at $MANIFEST_URL..."
+          curl -s -f $MANIFEST_URL > /dev/null
+
+          if [ $? -eq 0 ]; then
+            echo "✅ PWA manifest is accessible"
+          else
+            echo "❌ PWA manifest is not accessible"
+            exit 1
+          fi
+
+      - name: Create Health Check Report
+        if: always()
+        run: |
+          echo "📊 Health Check Summary:" >> $GITHUB_STEP_SUMMARY
+          echo "- Production URL: https://suedtirol-wetter-v2.pages.dev" >> $GITHUB_STEP_SUMMARY
+          echo "- Checked at: $(date -u)" >> $GITHUB_STEP_SUMMARY
+
+          if [ $? -eq 0 ]; then
+            echo "- Status: ✅ All checks passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- Status: ❌ Some checks failed" >> $GITHUB_STEP_SUMMARY
+          fi
