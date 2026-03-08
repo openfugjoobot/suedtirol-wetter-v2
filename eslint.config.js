@@ -1,6 +1,7 @@
 import svelte from 'eslint-plugin-svelte';
 import prettier from 'eslint-config-prettier';
-import ts from '@typescript-eslint/parser';
+import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
 import svelteParser from 'svelte-eslint-parser';
 
 export default [
@@ -11,7 +12,7 @@ export default [
     languageOptions: {
       parser: svelteParser,
       parserOptions: {
-        parser: ts
+        parser: tsParser
       }
     },
     rules: {
@@ -23,12 +24,15 @@ export default [
   {
     files: ['**/*.ts', '**/*.js'],
     languageOptions: {
-      parser: ts,
+      parser: tsParser,
       ecmaVersion: 2020,
       sourceType: 'module'
     },
+    plugins: {
+      '@typescript-eslint': tsPlugin
+    },
     rules: {
-      ...ts.configs.recommended.rules,
+      ...tsPlugin.configs.recommended.rules,
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'error'
     }
