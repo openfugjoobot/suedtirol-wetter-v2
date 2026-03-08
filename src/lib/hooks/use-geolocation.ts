@@ -2,7 +2,6 @@
  * Geolocation hook - Reactive geolocation for Svelte 5
  */
 
-import { $state, $effect } from 'svelte/store';
 import type { Coordinates } from '$lib/types/location.types';
 
 export interface GeolocationState {
