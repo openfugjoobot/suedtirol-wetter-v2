@@ -5,6 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
 [![Svelte](https://img.shields.io/badge/Svelte-5.0+-ff3e00)](https://svelte.dev/)
+[![CI/CD](https://github.com/openfugjoobot/suedtirol-wetter-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/openfugjoobot/suedtirol-wetter-v2/actions/workflows/ci.yml)
+[![Deploy](https://github.com/openfugjoobot/suedtirol-wetter-v2/actions/workflows/deploy.yml/badge.svg)](https://github.com/openfugjoobot/suedtirol-wetter-v2/actions/workflows/deploy.yml)
 
 A modern weather application for South Tyrol (Südtirol), Italy. Built with Svelte 5, Tailwind CSS v4, and powered by Open-Meteo API.
 
@@ -52,6 +54,7 @@ The app will be available at `http://localhost:5173`.
 |----------|-------------|
 | [USER_GUIDE.md](docs/USER_GUIDE.md) | Complete user guide with feature explanations |
 | [API.md](docs/API.md) | API documentation for developers |
+| [DEPLOYMENT.md](DEPLOYMENT.md) | Deployment guide and CI/CD setup |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution guidelines |
 | [CHANGELOG.md](CHANGELOG.md) | Version history and changes |
 | [TECHNICAL.md](TECHNICAL.md) | Technical architecture documentation |
@@ -140,13 +143,18 @@ npm run preview
 
 ## ☁️ Deployment
 
-This app is designed for static hosting:
+**Live URL**: 🚀 [https://suedtirol-wetter-v2.pages.dev](https://suedtirol-wetter-v2.pages.dev)
 
-- **Cloudflare Pages** - Automatic builds from Git
-- **Vercel** - Automatic builds from Git
-- **Netlify** - Drag & drop or Git integration
+This app is deployed on **Cloudflare Pages** with automatic CI/CD via GitHub Actions.
 
-No server-side rendering required - fully client-side.
+### CI/CD Pipeline
+
+- **Continuous Integration**: Automated testing, linting, and type checking on every push
+- **Continuous Deployment**: Automatic deployment to production on main branch
+- **Health Monitoring**: Automated health checks running 3x daily
+- **Release Management**: Automated GitHub releases with changelog generation
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for deployment details and setup instructions.
 
 ## 🤝 Contributing
 
