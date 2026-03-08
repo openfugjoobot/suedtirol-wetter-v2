@@ -1,0 +1,144 @@
+{
+  "app": {
+    "title": "Südtirol Wetter",
+    "description": "Wettervorhersage für Südtirol",
+    "loading": "Laden...",
+    "error": {
+      "title": "Ein Fehler ist aufgetreten",
+      "retry": "Erneut versuchen",
+      "offline": "Keine Internetverbindung",
+      "apiUnavailable": "Wetterdienst vorübergehend nicht verfügbar"
+    }
+  },
+  "weather": {
+    "current": {
+      "title": "Aktuelles Wetter",
+      "feelsLike": "Gefühlt",
+      "humidity": "Luftfeuchtigkeit",
+      "wind": "Wind",
+      "pressure": "Luftdruck",
+      "visibility": "Sichtweite",
+      "uv": "UV-Index",
+      "sun": "Sonne",
+      "sunrise": "Sonenaufgang",
+      "sunset": "Sonnenuntergang"
+    },
+    "conditions": {
+      "0": "Klarer Himmel",
+      "1": "Überwiegend klar",
+      "2": "Teilweise bewölkt",
+      "3": "Bedeckt",
+      "45": "Nebel",
+      "48": "Nebel mit Reifansatz",
+      "51": "Leichter Nieselregen",
+      "53": "Nieselregen",
+      "55": "Starker Nieselregen",
+      "61": "Leichter Regen",
+      "63": "Regen",
+      "65": "Starker Regen",
+      "71": "Leichter Schneefall",
+      "73": "Schneefall",
+      "75": "Starker Schneefall",
+      "80": "Leichte Regenschauer",
+      "81": "Regenschauer",
+      "82": "Starke Regenschauer",
+      "95": "Gewitter",
+      "96": "Gewitter mit leichtem Hagel",
+      "99": "Gewitter mit starkem Hagel"
+    },
+    "_forecast": {
+      "hourly": "Stündlich",
+      "daily": "Tage",
+      "today": "Heute",
+      "tomorrow": "Morgen",
+      "next_days": "Nächste Tage"
+    },
+    "radar": {
+      "title": "Niederschlagsradar",
+      "now": "Jetzt",
+      "past": "Vergangen",
+      "future": "Zukunft",
+      "auto_refresh": "Automatisch aktualisieren"
+    },
+    "alerts": {
+      "title": "Wetterwarnungen",
+      "severe": "Schwerwiegender",
+      "moderate": "Mäßig",
+      "no_alerts": "Keine Warnungen"
+    },
+    "units": {
+      "celsius": "°C",
+      "fahrenheit": "°F",
+      "kmh": "km/h",
+      "ms": "m/s",
+      "mph": "mph",
+      "hpa": "hPa",
+      "mmhg": "mmHg",
+      "inhg": "inHg"
+    },
+    "uv": {
+      "low": "Niedrig",
+      "moderate": "Mäßig",
+      "high": "Hoch",
+      "very_high": "Sehr hoch",
+      "extreme": "Extrem"
+    },
+    "visibility": {
+      "excellent": "Ausgezeichnet",
+      "good": "Gut",
+      "moderate": "Mäßig",
+      "poor": "Schlecht"
+    },
+    "wind": {
+      "calm": "Flaut",
+      "light_air": "Leise Brise",
+      "light_breeze": "Leichte Brise",
+      "gentle_breeze": "Mäßige Brise",
+      "moderate_breeze": "Frische Brise",
+      "strong_breeze": "Starker Wind",
+      "high_wind": "Stürmischer Wind",
+      "gale": "Sturm",
+      "strong_gale": "Schwerer Sturm",
+      "storm": "Orkanartiger Sturm",
+      "hurricane": "Orkan"
+    }
+  },
+  "location": {
+    "search": "Ort suchen...",
+    "current": "Aktueller Standort",
+    "favorites": "Favoriten",
+    "addFavorite": "Zu Favoriten hinzufügen",
+    "removeFavorite": "Aus Favoriten entfernen",
+    "recent": "Letzte Orte",
+    "select": "Ort auswählen",
+    "permission_required": "Standortberechtigung erforderlich",
+    "enable_in_settings": "Bitte aktivieren Sie die Standortberechtigung in den Einstellungen"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "language": "Sprache",
+    "units": "Einheiten",
+    "temperature": "Temperatur",
+    "windSpeed": "Windgeschwindigkeit",
+    "pressure": "Luftdruck",
+    "notifications": "Benachrichtigungen",
+    "theme": "Thema",
+    "dark": "Dunkel",
+    "light": "Hell",
+    "system": "System",
+    "oled": "OLED"
+  },
+  "common": {
+    "loading": "Laden...",
+    "error": "Fehler",
+    "retry": "Erneut versuchen",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "close": "Schließen",
+    "settings": "Einstellungen",
+    "forecast": "Vorhersage",
+    "radar": "Radar",
+    "mountain": "Bergwetter",
+    "home": "Start"
+  }
+}

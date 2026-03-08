@@ -1,0 +1,5 @@
+{
+  "id": "button",
+  "dependencies": ["clsx", "tailwind-merge", "bits-ui"],
+  "files": ["Button.svelte", "button.ts"]
+}

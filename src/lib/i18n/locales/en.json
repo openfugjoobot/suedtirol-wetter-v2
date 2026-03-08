@@ -1,0 +1,124 @@
+{
+  "app": {
+    "title": "South Tyrol Weather",
+    "description": "Weather forecast for South Tyrol",
+    "loading": "Loading...",
+    "error": {
+      "title": "An error occurred",
+      "retry": "Try again",
+      "offline": "No internet connection",
+      "apiUnavailable": "Weather service temporarily unavailable"
+    }
+  },
+  "weather": {
+    "current": {
+      "title": "Current Weather",
+      "feelsLike": "Feels like",
+      "humidity": "Humidity",
+      "wind": "Wind",
+      "pressure": "Pressure",
+      "visibility": "Visibility",
+      "uv": "UV Index",
+      "sun": "Sun",
+      "sunrise": "Sunrise",
+      "sunset": "Sunset"
+    },
+    "conditions": {
+      "0": "Clear sky",
+      "1": "Mainly clear",
+      "2": "Partly cloudy",
+      "3": "Overcast",
+      "45": "Fog",
+      "48": "Depositing rime fog",
+      "51": "Light drizzle",
+      "53": "Drizzle",
+      "55": "Dense drizzle",
+      "61": "Slight rain",
+      "63": "Rain",
+      "65": "Heavy rain",
+      "71": "Slight snow",
+      "73": "Snow",
+      "75": "Heavy snow",
+      "80": "Slight showers",
+      "81": "Showers",
+      "82": "Heavy showers",
+      "95": "Thunderstorm",
+      "96": "Thunderstorm with slight hail",
+      "99": "Thunderstorm with heavy hail"
+    },
+    "units": {
+      "celsius": "°C",
+      "fahrenheit": "°F",
+      "kmh": "km/h",
+      "ms": "m/s",
+      "mph": "mph",
+      "hpa": "hPa",
+      "mmhg": "mmHg",
+      "inhg": "inHg"
+    },
+    "uv": {
+      "low": "Low",
+      "moderate": "Moderate",
+      "high": "High",
+      "very_high": "Very high",
+      "extreme": "Extreme"
+    },
+    "visibility": {
+      "excellent": "Excellent",
+      "good": "Good",
+      "moderate": "Moderate",
+      "poor": "Poor"
+    },
+    "wind": {
+      "calm": "Calm",
+      "light_air": "Light air",
+      "light_breeze": "Light breeze",
+      "gentle_breeze": "Gentle breeze",
+      "moderate_breeze": "Moderate breeze",
+      "strong_breeze": "Strong breeze",
+      "high_wind": "High wind",
+      "gale": "Gale",
+      "strong_gale": "Strong gale",
+      "storm": "Storm",
+      "hurricane": "Hurricane"
+    }
+  },
+  "location": {
+    "search": "Search location...",
+    "current": "Current location",
+    "favorites": "Favorites",
+    "addFavorite": "Add to favorites",
+    "removeFavorite": "Remove from favorites",
+    "recent": "Recent locations",
+    "select": "Select location",
+    "permission_required": "Location permission required",
+    "enable_in_settings": "Please enable location permission in settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "units": "Units",
+    "temperature": "Temperature",
+    "windSpeed": "Wind speed",
+    "pressure": "Pressure",
+    "notifications": "Notifications",
+    "theme": "Theme",
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System",
+    "oled": "OLED"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close",
+    "settings": "Settings",
+    "forecast": "Forecast",
+    "radar": "Radar",
+    "mountain": "Mountain weather",
+    "home": "Home"
+  }
+}

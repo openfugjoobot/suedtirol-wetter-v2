@@ -1,0 +1,124 @@
+{
+  "app": {
+    "title": "Meteo Sudtirol",
+    "description": "Previscions meteo per l Sudtirol",
+    "loading": "Ciamant...",
+    "error": {
+      "title": "N erour é gnü",
+      "retry": "Proia ite atramënter",
+      "offline": "Nia connecion internet",
+      "apiUnavailable": "Servisc meteo暂时 nia daurì"
+    }
+  },
+  "weather": {
+    "current": {
+      "title": "Meteo atual",
+      "feelsLike": "Percepida",
+      "humidity": "Umidità",
+      "wind": "Vënt",
+      "pressure": "Pression",
+      "visibility": "Visibilità",
+      "uv": "Index UV",
+      "sun": "Soreje",
+      "sunrise": "L'aldì",
+      "sunset": "L'imbrunì"
+    },
+    "conditions": {
+      "0": "Ciel serën",
+      "1": "Prevalentemënter serën",
+      "2": "Parzialmënter nìl",
+      "3": "Nìl",
+      "45": "Niebia",
+      "48": "Niebia cun brina",
+      "51": "Ploia lieja",
+      "53": "Ploia",
+      "55": "Ploia fuarta",
+      "61": "Ploia lieja",
+      "63": "Ploia",
+      "65": "Ploia fuarta",
+      "71": "Nëif lieia",
+      "73": "Nëif",
+      "75": "Nëif fuarta",
+      "80": "Acua lieja",
+      "81": "Acua",
+      "82": "Acua fuarta",
+      "95": "Trun y saettes",
+      "96": "Trun cun granie lieia",
+      "99": "Trun cun granie fuarta"
+    },
+    "units": {
+      "celsius": "°C",
+      "fahrenheit": "°F",
+      "kmh": "km/h",
+      "ms": "m/s",
+      "mph": "mph",
+      "hpa": "hPa",
+      "mmhg": "mmHg",
+      "inhg": "inHg"
+    },
+    "uv": {
+      "low": "Basc",
+      "moderate": "Moderà",
+      "high": "Aut",
+      "very_high": "Molto aut",
+      "extreme": "Estrem"
+    },
+    "visibility": {
+      "excellent": "Ezellënt",
+      "good": "Bon",
+      "moderate": "Moderà",
+      "poor": "Pover"
+    },
+    "wind": {
+      "calm": "Càlma",
+      "light_air": "Aira lieja",
+      "light_breeze": "Brieza lieja",
+      "gentle_breeze": "Brieza",
+      "moderate_breeze": "Brieza moderada",
+      "strong_breeze": "Vënt",
+      "high_wind": "Vënt fuart",
+      "gale": "Temporala",
+      "strong_gale": "Temporala fuarta",
+      "storm": "Buriana",
+      "hurricane": "Uragan"
+    }
+  },
+  "location": {
+    "search": "Ciria località...",
+    "current": "Posizion atuala",
+    "favorites": "Preferìs",
+    "addFavorite": "Ajunta ai preferìs",
+    "removeFavorite": "Levia dai preferìs",
+    "recent": "Località recientes",
+    "select": "Siëlte località",
+    "permission_required": "Permesc de posizioon necessari",
+    "enable_in_settings": "Abilita tl menù de impostazions"
+  },
+  "settings": {
+    "title": "Impostazions",
+    "language": "Lingua",
+    "units": "Unità",
+    "temperature": "Temperatura",
+    "windSpeed": "Velocità vënt",
+    "pressure": "Pression",
+    "notifications": "Notificazions",
+    "theme": "Tema",
+    "dark": "Scur",
+    "light": "Clër",
+    "system": "Sistem",
+    "oled": "OLED"
+  },
+  "common": {
+    "loading": "Ciamant...",
+    "error": "Erour",
+    "retry": "Proia atramënter",
+    "cancel": "Anula",
+    "save": "Salva",
+    "close": "Sara",
+    "settings": "Impostazions",
+    "forecast": "Previscions",
+    "radar": "Radar",
+    "mountain": "Meteo de mont",
+    "home": "Home"
+  }
+}

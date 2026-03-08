@@ -1,0 +1,124 @@
+{
+  "app": {
+    "title": "Meteo Sudtirolo",
+    "description": "Previsioni meteorologiche per il Sudtirolo",
+    "loading": "Caricamento...",
+    "error": {
+      "title": "Si è verificato un errore",
+      "retry": "Riprova",
+      "offline": "Nessuna connessione internet",
+      "apiUnavailable": "Servizio meteo temporaneamente non disponibile"
+    }
+  },
+  "weather": {
+    "current": {
+      "title": "Meteo attuale",
+      "feelsLike": "Percepita",
+      "humidity": "Umidità",
+      "wind": "Vento",
+      "pressure": "Pressione",
+      "visibility": "Visibilità",
+      "uv": "Indice UV",
+      "sun": "Sole",
+      "sunrise": "Alba",
+      "sunset": "Tramonto"
+    },
+    "conditions": {
+      "0": "Cielo sereno",
+      "1": "Prevalentemente sereno",
+      "2": "Parzialmente nuvoloso",
+      "3": "Nuvoloso",
+      "45": "Nebbia",
+      "48": "Nebbia con galaverna",
+      "51": "Pioggia leggera",
+      "53": "Pioggia",
+      "55": "Pioggia forte",
+      "61": "Pioggia leggera",
+      "63": "Pioggia",
+      "65": "Pioggia forte",
+      "71": "Neve leggera",
+      "73": "Neve",
+      "75": "Neve forte",
+      "80": "Rovesci leggeri",
+      "81": "Rovesci",
+      "82": "Rovesci forti",
+      "95": "Temporale",
+      "96": "Temporale con grandine leggera",
+      "99": "Temporale con grandine forte"
+    },
+    "units": {
+      "celsius": "°C",
+      "fahrenheit": "°F",
+      "kmh": "km/h",
+      "ms": "m/s",
+      "mph": "mph",
+      "hpa": "hPa",
+      "mmhg": "mmHg",
+      "inhg": "inHg"
+    },
+    "uv": {
+      "low": "Basso",
+      "moderate": "Moderato",
+      "high": "Alto",
+      "very_high": "Molto alto",
+      "extreme": "Estremo"
+    },
+    "visibility": {
+      "excellent": "Eccellente",
+      "good": "Buona",
+      "moderate": "Moderata",
+      "poor": "Scarsa"
+    },
+    "wind": {
+      "calm": "Calma",
+      "light_air": "Bava di vento",
+      "light_breeze": "Brezza leggera",
+      "gentle_breeze": "Brezza tesa",
+      "moderate_breeze": "Vento moderato",
+      "strong_breeze": "Vento teso",
+      "high_wind": "Vento fresco",
+      "gale": "Vento forte",
+      "strong_gale": "Vento molto forte",
+      "storm": "Burrasca",
+      "hurricane": "Uragano"
+    }
+  },
+  "location": {
+    "search": "Cerca località...",
+    "current": "Posizione attuale",
+    "favorites": "Preferiti",
+    "addFavorite": "Aggiungi ai preferiti",
+    "removeFavorite": "Rimuovi dai preferiti",
+    "recent": "Lucalità recenti",
+    "select": "Seleziona località",
+    "permission_required": "Permesso di posizione richiesto",
+    "enable_in_settings": "Abilita il permesso di posizione nelle impostazioni"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "language": "Lingua",
+    "units": "Unità",
+    "temperature": "Temperatura",
+    "windSpeed": "Velocità vento",
+    "pressure": "Pressione",
+    "notifications": "Notifiche",
+    "theme": "Tema",
+    "dark": "Scuro",
+    "light": "Chiaro",
+    "system": "Sistema",
+    "oled": "OLED"
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "retry": "Riprova",
+    "cancel": "Annulla",
+    "save": "Salva",
+    "close": "Chiudi",
+    "settings": "Impostazioni",
+    "forecast": "Previsioni",
+    "radar": "Radar",
+    "mountain": "Meteo montano",
+    "home": "Home"
+  }
+}
